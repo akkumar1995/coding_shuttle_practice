@@ -12,10 +12,10 @@ public class PaymentService {
     }
     @PostConstruct
     public void afterInit(){
-        System.out.println("Before Pay");
+//        System.out.println("Before Pay");
     }
     @PreDestroy
     public void beforeDestroy(){
-        System.out.println("After Pay");
+//        System.out.println("After Pay");
     }
 }
