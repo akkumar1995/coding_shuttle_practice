@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: modul9
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: qwen3:1.7b
+      embedding:
+          options:
+            model: qwen3-embedding:0.6b
+  vectorstore:
+    pgvector:
+      initialize-schema: true
+  chat:
+    memory:
+      repository:
+        jdbc:
+          initialize-schema: always
+          table-name: chat_memory
+  datasource:
+    url: jdbc:postgresql://localhost:5434/vector_store
+    username: user
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-root.xml
+    enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
