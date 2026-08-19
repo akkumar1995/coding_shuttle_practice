@@ -1,11 +1,11 @@
 package com.avinash.kumar.order_service.controller;
 
-import com.avinash.kumar.order_service.client.InventoryFeignClient;
 import com.avinash.kumar.order_service.dto.OrderRequestDto;
 import com.avinash.kumar.order_service.service.OrdersService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +15,7 @@ import java.util.List;
 @RequestMapping("/core")
 @RequiredArgsConstructor
 @Slf4j
+@RefreshScope
 public class OrdersController {
 
     private final OrdersService orderService;
